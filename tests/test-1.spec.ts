@@ -14,7 +14,7 @@ test.describe('Тесты главной страницы', () => {
   await expect(page.getByRole('link', { name: 'Community' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'GitHub repository' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Discord server' })).toBeVisible();
-});32
+});
 
 test('Проверка содержимого кнопок', async ({ page }) => {
   await expect(page.getByLabel('Main', { exact: true }).locator('b')).toContainText('Playwright');
