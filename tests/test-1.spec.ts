@@ -1,12 +1,11 @@
 import { test, expect } from '@playwright/test';
-test.describe
-test.beforeEach async ({ page }) => { page.goto('https://playwright.dev/'
 
-)}
-
-
-test('Проверка видимости кнопок', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test.describe('Тесты главной страницы', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('https://playwright.dev/')
+  }) 
+  
+  test('Проверка видимости кнопок', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Playwright logo Playwright' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Docs' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'API' })).toBeVisible();
@@ -15,10 +14,9 @@ test('Проверка видимости кнопок', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Community' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'GitHub repository' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Discord server' })).toBeVisible();
-});
+});32
 
 test('Проверка содержимого кнопок', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
   await expect(page.getByLabel('Main', { exact: true }).locator('b')).toContainText('Playwright');
   await expect(page.getByLabel('Main', { exact: true })).toContainText('Docs');
   await expect(page.getByLabel('Main', { exact: true })).toContainText('API');
@@ -28,7 +26,6 @@ test('Проверка содержимого кнопок', async ({ page }) =>
 });
 
 test('Проверка фона гл страницы', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
   await page.locator('.toggleButton_gllP').click()
   await expect(page.locator('HTML')).toHaveAttribute('data-theme', 'dark')
-});
+});})
