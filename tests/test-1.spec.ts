@@ -57,18 +57,18 @@ test.describe("Тесты гл страницы", () => {
     await page.goto("https://playwright.dev/");
   });
 
-  test("Проверка отображения кнопок хедера", async ({ page }) => {
+  test("Проверка отображения элемента", async ({ page }) => {
     arrayElements.forEach(({ locator, name }) => {
-      test.step(name, async () => {
+      test.step(`Проверка отображения элемента ${name}`, async () => {
         await expect(locator(page)).toBeVisible(); //Проверка видимости элементов
       });
     });
   }),
 
 
-    test("Проверка содержимого кнопок", async ({ page }) => {
+    test("Проверка содержимого кнопки", async ({ page }) => {
       arrayElements.forEach(async({ locator, text, name}) => {
-        test.step(name, async() => { 
+        test.step(`Проверка содержания ${name}`, async() => { 
         if (text) {
             await expect(locator(page)).toContainText(text); //Проверка содержания текста (Именно содержания)
         }
@@ -87,7 +87,7 @@ test.describe("Тесты гл страницы", () => {
   });
 
 
-  test("Проверка фона гл страницы", async ({ page }) => {
+  test("Проверка лайт мода", async ({ page }) => {
     await page.locator(".toggleButton_gllP").click(); // Клик на темную тему
     await expect(page.locator("HTML")).toHaveAttribute("data-theme", "dark"); // Проверка темной темы после клика
   });
