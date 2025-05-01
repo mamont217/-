@@ -14,7 +14,7 @@ const arrayElements: Elementt[] = [
       page.getByRole("link", { name: "Playwright logo Playwright" }),
     name: "Playwright logo",
     text: "Playwright",
-    atttibute: "/",
+    atttibute: "/" ,  
   },
   {
     locator: (page: Page): Locator =>
