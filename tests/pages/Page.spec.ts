@@ -1,32 +1,27 @@
-import { test, Locator, Page } from "@playwright/test"
+import { test, expect } from '../fixtures/mainPage.ts'
+//import { test } from "@playwright/test"
 import { MainPage } from "../models/maimModels.spec.ts";
 
-let mainPage :  MainPage
-
 test.describe("Тесты гл страницы", () => {
-  test.beforeEach(async ({ page }) => {
-     mainPage = new MainPage(page)
-   await page.goto("https://playwright.dev/");
-  });
 
-  test("Проверка отображения элемента", async ({ page }) => {
+  test("Проверка отображения элемента", async ({ mainPage }) => {
   await mainPage.openMyPage()
   await mainPage.checkElementsToVisible()
   }),
 
 
-    test("Проверка содержимого кнопки", async ({ page }) => {
+    test("Проверка содержимого кнопки", async ({ mainPage }) => {
       await mainPage.openMyPage()
       await mainPage.checkElementsToText()
     });
 
 
-  test("Проверка атрибутов href", async ({ page }) => {
+  test("Проверка атрибутов href", async ({ mainPage }) => {
     await mainPage.openMyPage()
     await mainPage.checkElementsHrefAtributes()
   });
 
-  test("Проверка лайт мода", async ({ page }) => {
+  test("Проверка лайт мода", async ({ mainPage }) => {
     await test.step('Нажатие на иконку лайт мода', async() => {
       await mainPage.checkLiteMod();  
     })
