@@ -20,7 +20,9 @@ test('Проверка видимости кнопок', async ({ page }) => {
   await expect(page.getByLabel('Main', { exact: true })).toContainText('Node.js');
   await expect(page.getByLabel('Main', { exact: true })).toContainText('Community');
   await expect(page.locator('h1')).toContainText('Playwright enables reliable end-to-end testing for modern web apps.');
+  
 });
+99
 kfkfkfk
 test('Проверка фона гл страницы', async ({ page }) => {
   await page.goto('https://playwright.dev/');
