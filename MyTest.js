@@ -10,9 +10,7 @@ test('Проверка видимости кнопок', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Community' })).toBeVisible()
   await expect(page.getByRole('link', { name: 'GitHub repository' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Discord server' })).toBeVisible(); 
-
 });
-fgdfg
 
   test('Проверка содержимого кнопок', async ({ page }) => {
     await page.goto('https://playwright.dev/');
